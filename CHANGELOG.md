@@ -1,5 +1,19 @@
 # Changelog
 
+## Unreleased
+
+This release adds automatic retry for failed `ImageUpdateAutomation` pushes,
+most commonly a lost push race when another writer already advanced the same
+push branch. On a failed push, the controller now fetches and hard-resets to
+the new remote tip, re-applies policies, and retries the commit and push, up
+to 5 attempts with exponential backoff (2s/4s/8s/16s), instead of waiting for
+the next scheduled reconciliation. This is controlled by the new
+`GitPushRetryOnFailure` feature gate, disabled by default.
+
+Improvements:
+- Retry failed pushes instead of waiting for the next reconciliation, behind
+  the opt-in `GitPushRetryOnFailure` feature gate
+
 ## 1.2.5
 
 **Release date:** 2026-08-31

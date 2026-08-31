@@ -37,6 +37,10 @@ const (
 	// GitSparseCheckout enables the use of sparse checkout when pulling source from
 	// Git repositories.
 	GitSparseCheckout = "GitSparseCheckout"
+	// GitPushRetryOnFailure enables retrying a failed push (fetch, hard
+	// reset, re-apply policies, recommit, push again) instead of failing
+	// the reconciliation immediately.
+	GitPushRetryOnFailure = "GitPushRetryOnFailure"
 	// CacheSecretsAndConfigMaps controls whether Secrets and ConfigMaps should
 	// be cached.
 	//
@@ -61,6 +65,10 @@ var features = map[string]bool{
 	// GitSparseCheckout
 	// opt-in from v0.42
 	GitSparseCheckout: false,
+
+	// GitPushRetryOnFailure
+	// opt-in from v1.2.5
+	GitPushRetryOnFailure: false,
 
 	// CacheSecretsAndConfigMaps
 	// opt-in from v0.29
