@@ -67,7 +67,7 @@ var features = map[string]bool{
 	GitSparseCheckout: false,
 
 	// GitPushRetryOnFailure
-	// opt-in from v1.2.5
+	// opt-in from v1.3.0
 	GitPushRetryOnFailure: false,
 
 	// CacheSecretsAndConfigMaps
